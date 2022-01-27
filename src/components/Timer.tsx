@@ -3,7 +3,7 @@ import { getFormattedTime } from "../utils";
 
 type TimerProps = {
   startTime: number;
-  startCount: React.MutableRefObject<any>;
+  startCount: React.MutableRefObject<Function>;
 };
 
 export const Timer: React.FC<TimerProps> = ({ startTime = 0, startCount }) => {
