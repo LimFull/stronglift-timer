@@ -34,9 +34,12 @@ export const Timer: React.FC<TimerProps> = ({
   }
 
   function startCountDown(): void {
+    var currentTime = timerStartTime.current;
+    if (currentTime <= 0) {
+      return;
+    }
     setTimerDisable(true);
     const p = document.getElementById("time")! as HTMLParagraphElement;
-    var currentTime = timerStartTime.current;
     const intervalTime = 10;
     interval.current = window.setInterval(() => {
       currentTime -= intervalTime;
