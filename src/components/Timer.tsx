@@ -19,6 +19,7 @@ export const Timer: React.FC<TimerProps> = ({
 }) => {
   const timerStartTime = useRef(0);
   const interval = useRef(0);
+  const audio = useRef(new Audio());
 
   useEffect(() => {
     startCount.current = startCountDown;
@@ -34,6 +35,7 @@ export const Timer: React.FC<TimerProps> = ({
   }
 
   function startCountDown(): void {
+    audio.current = new Audio();
     var currentTime = timerStartTime.current;
     if (currentTime <= 0) {
       return;
@@ -47,12 +49,9 @@ export const Timer: React.FC<TimerProps> = ({
         p.innerText = String(getFormattedTime(0));
         window.clearInterval(interval.current);
         setTimerDisable(false);
-        const audio = new Audio();
-        audio.autoplay = true;
-        audio.src =
-          "data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBQbHVzIMKpIE5DSCBTb2Z0d2FyZQBUSVQyAAAABgAAAzIyMzUAVFNTRQAAAA8AAANMYXZmNTcuODMuMTAwAAAAAAAAAAAAAAD/80DEAAAAA0gAAAAATEFNRTMuMTAwVVVVVVVVVVVVVUxBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQsRbAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQMSkAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV";
-        audio.src = beepbeep;
-        audio.play();
+
+        audio.current.src = beepbeep;
+        audio.current.play();
       } else {
         p.innerText = String(getFormattedTime(currentTime));
       }
