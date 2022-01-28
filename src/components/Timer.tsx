@@ -1,31 +1,70 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useRef, Dispatch, SetStateAction } from "react";
 import { getFormattedTime } from "../utils";
 
 type TimerProps = {
-  startTime: number;
+  setStartTime: React.MutableRefObject<Function>;
   startCount: React.MutableRefObject<Function>;
+  resetCount: React.MutableRefObject<Function>;
+  stopTimer: React.MutableRefObject<Function>;
+  setTimerDisable: Dispatch<SetStateAction<boolean>>;
 };
 
-export const Timer: React.FC<TimerProps> = ({ startTime = 0, startCount }) => {
-  const [time, setTime] = useState(getFormattedTime(0));
+export const Timer: React.FC<TimerProps> = ({
+  startCount,
+  resetCount,
+  stopTimer,
+  setStartTime,
+  setTimerDisable,
+}) => {
+  const timerStartTime = useRef(0);
+  const interval = useRef(0);
 
   useEffect(() => {
     startCount.current = startCountDown;
+    resetCount.current = resetCountDown;
+    stopTimer.current = stopCountDown;
+    setStartTime.current = _setStartTime;
   }, []);
 
-  useEffect(() => {
-    console.log("시간 바뀜");
-    setTime(getFormattedTime(startTime));
-    return () => {};
-  }, [startTime]);
+  function _setStartTime(time: number = 0): void {
+    timerStartTime.current = time;
+    const p = document.getElementById("time")! as HTMLParagraphElement;
+    p.innerText = String(getFormattedTime(time));
+  }
 
   function startCountDown(): void {
-    console.log("startCountDown called");
+    setTimerDisable(true);
+    const p = document.getElementById("time")! as HTMLParagraphElement;
+    var currentTime = timerStartTime.current;
+    const intervalTime = 10;
+    interval.current = window.setInterval(() => {
+      currentTime -= intervalTime;
+      if (currentTime <= 0) {
+        p.innerText = String(getFormattedTime(0));
+        window.clearInterval(interval.current);
+        setTimerDisable(false);
+      } else {
+        p.innerText = String(getFormattedTime(currentTime));
+      }
+    }, intervalTime);
+  }
+
+  function resetCountDown(): void {
+    setTimerDisable(false);
+
+    window.clearInterval(interval.current);
+  }
+
+  function stopCountDown(): void {
+    setTimerDisable(false);
+    window.clearInterval(interval.current);
   }
 
   return (
     <div>
-      <p className="text-lg text-white">{time}</p>
+      <p id="time" className=" text-white text-7xl sm:text-9xl my-10">
+        00:00.00
+      </p>
     </div>
   );
 };

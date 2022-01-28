@@ -14,3 +14,15 @@ export const getFormattedTime = (milliSeconds: number): string => {
     String(ms).padStart(3, "0").substring(0, 2)
   );
 };
+
+export const getStringTime = (milseconds: number): string => {
+  let full = milseconds / 1000;
+  const s = full % 60;
+  full = full - s;
+  const m = full / 60;
+
+  if (s === 0) {
+    return m + "분";
+  }
+  return m + "분 " + s + "초";
+};
