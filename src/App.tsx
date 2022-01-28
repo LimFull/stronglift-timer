@@ -8,7 +8,7 @@ const App: React.FC = () => {
   return (
     <Routes>
       <Route
-        path="/first"
+        path="/"
         element={
           <TimerContainer
             times={[90000, 180000, 300000]}
