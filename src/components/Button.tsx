@@ -16,7 +16,7 @@ export const Button: React.FC<ButtonProps> = ({
       className={className}
       disabled={disable ? true : false}
     >
-      <text className="text-lg font-bold	">{name ? name : ""}</text>
+      <span className="text-lg font-bold	">{name ? name : ""}</span>
     </button>
   );
 };

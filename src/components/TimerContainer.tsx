@@ -63,7 +63,7 @@ export const TimerContainer: React.FC<TimerContainerProps> = ({
               setIsRun(true);
             }}
             name="시작"
-            className={`w-28 h-28 m-5 rounded-full bg-orange-500 ${buttonColor}`}
+            className={`w-28 h-28 m-5 rounded-full  ${buttonColor}`}
             disable={timerDisable}
           />
           {!isStop ? (
@@ -74,7 +74,7 @@ export const TimerContainer: React.FC<TimerContainerProps> = ({
                 setIsRun(false);
               }}
               name="정지"
-              className={`w-28 h-28 m-5 rounded-full bg-orange-500 ${buttonColor}`}
+              className={`w-28 h-28 m-5 rounded-full  ${buttonColor}`}
               disable={!isRun}
             />
           ) : (

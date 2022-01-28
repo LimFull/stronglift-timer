@@ -9,7 +9,12 @@ const App: React.FC = () => {
     <Routes>
       <Route
         path="/first"
-        element={<TimerContainer times={[90000, 180000, 300000]} />}
+        element={
+          <TimerContainer
+            times={[90000, 180000, 300000]}
+            buttonColor={"bg-orange-500"}
+          />
+        }
       />
       <Route
         path="/second"
