@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, Dispatch, SetStateAction } from "react";
 import { getFormattedTime } from "../utils";
+import beepbeep from "../assets/sounds/beepbeep.mp3";
 
 type TimerProps = {
   setStartTime: React.MutableRefObject<Function>;
@@ -43,6 +44,7 @@ export const Timer: React.FC<TimerProps> = ({
         p.innerText = String(getFormattedTime(0));
         window.clearInterval(interval.current);
         setTimerDisable(false);
+        new Audio(beepbeep).play();
       } else {
         p.innerText = String(getFormattedTime(currentTime));
       }
