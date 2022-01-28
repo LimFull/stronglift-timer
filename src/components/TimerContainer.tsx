@@ -85,3 +85,5 @@ export const TimerContainer: React.FC = () => {
     </div>
   );
 };
+
+export default TimerContainer;
