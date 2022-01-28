@@ -11,7 +11,7 @@ const App: React.FC = () => {
         path="/"
         element={
           <TimerContainer
-            times={[100, 180000, 300000]}
+            times={[90000, 180000, 300000]}
             buttonColor={"bg-orange-500"}
           />
         }
