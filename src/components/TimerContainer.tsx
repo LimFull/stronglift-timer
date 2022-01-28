@@ -4,7 +4,15 @@ import TimeButton from "./TimeButton";
 import Timer from "./Timer";
 import "../App.css";
 
-export const TimerContainer: React.FC = () => {
+type TimerContainerProps = {
+  readonly buttonColor?: string;
+  readonly times: [number, number, number];
+};
+
+export const TimerContainer: React.FC<TimerContainerProps> = ({
+  times,
+  buttonColor,
+}) => {
   const startCount = useRef(() => {});
   const resetCount = useRef(() => {});
   const stopTimer = useRef(() => {});
@@ -27,21 +35,21 @@ export const TimerContainer: React.FC = () => {
         />
         <div className="flex flex-row	w-full justify-center ">
           <TimeButton
-            time={90000}
+            time={times[0]}
             onClick={(num: number) => {
               setStartTime.current(num);
               setDefaultTime(num);
             }}
           />
           <TimeButton
-            time={180000}
+            time={times[1]}
             onClick={(num: number) => {
               setStartTime.current(num);
               setDefaultTime(num);
             }}
           />
           <TimeButton
-            time={300000}
+            time={times[2]}
             onClick={(num: number) => {
               setStartTime.current(num);
               setDefaultTime(num);
@@ -55,7 +63,7 @@ export const TimerContainer: React.FC = () => {
               setIsRun(true);
             }}
             name="시작"
-            className="w-28 h-28 bg-orange-500 m-5 rounded-full	"
+            className={`w-28 h-28 m-5 rounded-full bg-orange-500 ${buttonColor}`}
             disable={timerDisable}
           />
           {!isStop ? (
@@ -66,7 +74,7 @@ export const TimerContainer: React.FC = () => {
                 setIsRun(false);
               }}
               name="정지"
-              className="w-28 h-28 bg-orange-500 m-5 rounded-full	"
+              className={`w-28 h-28 m-5 rounded-full bg-orange-500 ${buttonColor}`}
               disable={!isRun}
             />
           ) : (
@@ -77,7 +85,7 @@ export const TimerContainer: React.FC = () => {
                 setStartTime.current(deafultTime);
               }}
               name="재설정"
-              className="w-28 h-28 bg-orange-500 m-5 rounded-full	"
+              className={`w-28 h-28 m-5 rounded-full bg-orange-500 ${buttonColor}`}
             />
           )}
         </div>

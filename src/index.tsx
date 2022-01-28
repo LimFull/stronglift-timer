@@ -4,10 +4,12 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
+import BottomNav from "./components/BottomNav";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router basename={process.env.PUBLIC_URL}>
+      <BottomNav />
       <App />
     </Router>
   </React.StrictMode>,

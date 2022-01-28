@@ -23,6 +23,8 @@ export const getStringTime = (milseconds: number): string => {
 
   if (s === 0) {
     return m + "분";
+  } else if (m === 0) {
+    return s + "초";
   }
   return m + "분 " + s + "초";
 };
