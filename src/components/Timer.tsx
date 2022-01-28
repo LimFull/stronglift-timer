@@ -47,7 +47,9 @@ export const Timer: React.FC<TimerProps> = ({
         p.innerText = String(getFormattedTime(0));
         window.clearInterval(interval.current);
         setTimerDisable(false);
-        new Audio(beepbeep).play();
+        const audio = new Audio(beepbeep);
+        audio.muted = false;
+        audio.play();
       } else {
         p.innerText = String(getFormattedTime(currentTime));
       }
