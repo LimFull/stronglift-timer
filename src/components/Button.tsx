@@ -6,8 +6,8 @@ export const Button: React.FC<ButtonProps> = ({
   className,
   name,
   disable = false,
+  fontSize = "",
 }) => {
-  console.log("Button render", className, name);
   return (
     <button
       onClick={() => {
@@ -16,7 +16,11 @@ export const Button: React.FC<ButtonProps> = ({
       className={className}
       disabled={disable ? true : false}
     >
-      <span className="text-lg font-bold	">{name ? name : ""}</span>
+      <span
+        className={`flex justify-center item-center text-lg font-bold ${fontSize}`}
+      >
+        {name ? name : ""}
+      </span>
     </button>
   );
 };

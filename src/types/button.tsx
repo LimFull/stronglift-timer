@@ -7,4 +7,5 @@ export type ButtonProps = {
   className?: string;
   name?: string;
   disable?: Boolean;
+  fontSize?: string;
 };

@@ -17,27 +17,38 @@ export const TimerContainer: React.FC<TimerContainerProps> = ({
   const startCount = useRef(() => {});
   const resetCount = useRef(() => {});
   const stopTimer = useRef(() => {});
-  const setStartTime = useRef((num: number) => {
-    console.log("default");
-  });
+  const setStartTime = useRef((num: number) => {});
   const [timerDisable, setTimerDisable] = useState(false);
   const [isStop, setIsStop] = useState(false);
   const [deafultTime, setDefaultTime] = useState(0);
   const [isRun, setIsRun] = useState(false);
-  // const [timeList, setTimeList] = useState([]);
+  const [timeList, setTimeList] = useState(new Array<String>());
+
+  const addTimeList = (newTime: string): void => {
+    const _timeList = new Array<String>().concat(timeList);
+    _timeList.push(newTime);
+    setTimeList(_timeList);
+  };
+
+  const resetTimeList = (): void => {
+    setTimeList(new Array<String>());
+  };
+
   return (
     <div className="App">
-      <div className="flex flex-col w-full h-screen min-h-screen bg-[#282c34] text-white text-[calc(10px+2vmin)]">
-        <div className="flex w-full h-[20%] " />
+      <div className="flex flex-col w-full h-[100vh] min-h-screen bg-[#282c34] text-white text-[calc(10px+2vmin)]">
+        <div className="flex w-full h-[14%] " />
         <Timer
           setStartTime={setStartTime}
           startCount={startCount}
           resetCount={resetCount}
           stopTimer={stopTimer}
           setTimerDisable={setTimerDisable}
-          onEnd={() => {
+          onEnd={(startTime: string) => {
             setIsStop(true);
             setIsRun(false);
+
+            addTimeList(startTime);
           }}
         />
         <div className="flex flex-row	w-full justify-center ">
@@ -100,7 +111,19 @@ export const TimerContainer: React.FC<TimerContainerProps> = ({
             />
           )}
         </div>
-        <SetList times={[]} />
+        <div className="flex-col w-full h-[300px] ">
+          <SetList times={timeList} />
+          <div className="w-full h-full">
+            <Button
+              onClick={() => {
+                resetTimeList();
+              }}
+              className={"w-[85%] h-1/5 bg-orange-300 mt-6 rounded-lg"}
+              name="초기화"
+              fontSize="text-[25px]"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
