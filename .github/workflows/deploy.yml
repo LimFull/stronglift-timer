@@ -16,3 +16,6 @@ jobs:
 
       - name: Build                   # React Build
         run: npm run build
+      - name: Deploy api to Heroku
+        run: |
+          git subtree push --prefix build/ https://github.com/LimFull/stronglift-timer.git gh-pages
