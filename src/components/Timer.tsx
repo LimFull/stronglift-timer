@@ -26,7 +26,15 @@ export const Timer: React.FC<TimerProps> = ({
     resetCount.current = resetCountDown;
     stopTimer.current = stopCountDown;
     setStartTime.current = _setStartTime;
-  }, []);
+  }, [
+    resetCount,
+    resetCountDown,
+    setStartTime,
+    startCount,
+    startCountDown,
+    stopCountDown,
+    stopTimer,
+  ]);
 
   function _setStartTime(time: number = 0): void {
     timerStartTime.current = time;
