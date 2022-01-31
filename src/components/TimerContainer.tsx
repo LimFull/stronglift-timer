@@ -3,6 +3,7 @@ import { Button } from "./Button";
 import TimeButton from "./TimeButton";
 import Timer from "./Timer";
 import "../App.css";
+import SetList from "./SetList";
 
 type TimerContainerProps = {
   readonly buttonColor?: string;
@@ -23,9 +24,11 @@ export const TimerContainer: React.FC<TimerContainerProps> = ({
   const [isStop, setIsStop] = useState(false);
   const [deafultTime, setDefaultTime] = useState(0);
   const [isRun, setIsRun] = useState(false);
+  // const [timeList, setTimeList] = useState([]);
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="flex flex-col w-full h-screen min-h-screen bg-[#282c34] text-white text-[calc(10px+2vmin)]">
+        <div className="flex w-full h-[20%] " />
         <Timer
           setStartTime={setStartTime}
           startCount={startCount}
@@ -97,7 +100,8 @@ export const TimerContainer: React.FC<TimerContainerProps> = ({
             />
           )}
         </div>
-      </header>
+        <SetList times={[]} />
+      </div>
     </div>
   );
 };
