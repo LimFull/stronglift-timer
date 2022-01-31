@@ -84,47 +84,6 @@ export const Timer: React.FC<TimerProps> = ({
     _setStartTime,
   ]);
 
-  // function _setStartTime(time: number = 0): void {
-  //   timerStartTime.current = time;
-  //   const p = document.getElementById("time")! as HTMLParagraphElement;
-  //   p.innerText = String(getFormattedTime(time));
-  // }
-
-  // function startCountDown(): void {
-  //   audio.current = new Audio();
-  //   var currentTime = timerStartTime.current;
-  //   if (currentTime <= 0) {
-  //     return;
-  //   }
-  //   setTimerDisable(true);
-  //   const p = document.getElementById("time")! as HTMLParagraphElement;
-  //   const intervalTime = 10;
-  //   interval.current = window.setInterval(() => {
-  //     currentTime -= intervalTime;
-  //     if (currentTime <= 0) {
-  //       p.innerText = String(getFormattedTime(0));
-  //       window.clearInterval(interval.current);
-  //       setTimerDisable(false);
-
-  //       audio.current.src = beepbeep;
-  //       audio.current.play();
-  //     } else {
-  //       p.innerText = String(getFormattedTime(currentTime));
-  //     }
-  //   }, intervalTime);
-  // }
-
-  // function resetCountDown(): void {
-  //   setTimerDisable(false);
-
-  //   window.clearInterval(interval.current);
-  // }
-
-  // function stopCountDown(): void {
-  //   setTimerDisable(false);
-  //   window.clearInterval(interval.current);
-  // }
-
   return (
     <div>
       <p id="time" className=" text-white text-7xl sm:text-9xl my-10">
