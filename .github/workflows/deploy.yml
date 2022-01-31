@@ -16,6 +16,10 @@ jobs:
 
       - name: Build                   # React Build
         run: npm run build
-      - name: Deploy api to Heroku
+      - name: Deploy to gh-pages 
         run: |
+          git config --global user.name 'LimFull'
+          git config --global user.email 'full7002@naver.com'
+          git add *
+          git commit -am "Auto build"
           git subtree push --prefix build/ https://github.com/LimFull/stronglift-timer.git gh-pages
