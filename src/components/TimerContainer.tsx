@@ -39,6 +39,7 @@ export const TimerContainer: React.FC<TimerContainerProps> = ({
         />
         <div className="flex flex-row	w-full justify-center ">
           <TimeButton
+            disable={timerDisable}
             time={times[0]}
             onClick={(num: number) => {
               setStartTime.current(num);
@@ -46,6 +47,7 @@ export const TimerContainer: React.FC<TimerContainerProps> = ({
             }}
           />
           <TimeButton
+            disable={timerDisable}
             time={times[1]}
             onClick={(num: number) => {
               setStartTime.current(num);
@@ -53,6 +55,7 @@ export const TimerContainer: React.FC<TimerContainerProps> = ({
             }}
           />
           <TimeButton
+            disable={timerDisable}
             time={times[2]}
             onClick={(num: number) => {
               setStartTime.current(num);
