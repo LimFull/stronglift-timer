@@ -22,4 +22,6 @@ jobs:
           git config --global user.email 'full7002@naver.com'
           git add build/*
           git commit -am "Auto build"
+          git subtree split --prefix /build -b gh-pages
           git subtree push --prefix build/ https://github.com/LimFull/stronglift-timer.git gh-pages
+
