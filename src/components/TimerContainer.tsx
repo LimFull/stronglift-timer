@@ -118,7 +118,7 @@ export const TimerContainer: React.FC<TimerContainerProps> = ({
               onClick={() => {
                 resetTimeList();
               }}
-              className={"w-[85%] h-1/5 bg-orange-300 mt-6 rounded-lg"}
+              className={`w-[85%] h-1/5 mt-6 rounded-lg ${buttonColor}`}
               name="초기화"
               fontSize="text-[25px]"
             />
