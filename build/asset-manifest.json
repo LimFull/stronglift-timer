@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/stronglift-timer/static/css/main.e9564815.css",
-    "main.js": "/stronglift-timer/static/js/main.1bad1e0a.js",
+    "main.js": "/stronglift-timer/static/js/main.11b5e12d.js",
     "static/js/787.5744ec8a.chunk.js": "/stronglift-timer/static/js/787.5744ec8a.chunk.js",
     "static/media/beepbeep.mp3": "/stronglift-timer/static/media/beepbeep.a3192e1fd037b61aa42c.mp3",
     "index.html": "/stronglift-timer/index.html",
     "main.e9564815.css.map": "/stronglift-timer/static/css/main.e9564815.css.map",
-    "main.1bad1e0a.js.map": "/stronglift-timer/static/js/main.1bad1e0a.js.map",
+    "main.11b5e12d.js.map": "/stronglift-timer/static/js/main.11b5e12d.js.map",
     "787.5744ec8a.chunk.js.map": "/stronglift-timer/static/js/787.5744ec8a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e9564815.css",
-    "static/js/main.1bad1e0a.js"
+    "static/js/main.11b5e12d.js"
   ]
 }
