@@ -32,6 +32,10 @@ export const TimerContainer: React.FC<TimerContainerProps> = ({
           resetCount={resetCount}
           stopTimer={stopTimer}
           setTimerDisable={setTimerDisable}
+          onEnd={() => {
+            setIsStop(true);
+            setIsRun(false);
+          }}
         />
         <div className="flex flex-row	w-full justify-center ">
           <TimeButton
@@ -60,6 +64,7 @@ export const TimerContainer: React.FC<TimerContainerProps> = ({
           <Button
             onClick={() => {
               startCount.current();
+              setIsStop(false);
               setIsRun(true);
             }}
             name="시작"

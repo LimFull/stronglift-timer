@@ -14,6 +14,7 @@ type TimerProps = {
   resetCount: React.MutableRefObject<Function>;
   stopTimer: React.MutableRefObject<Function>;
   setTimerDisable: Dispatch<SetStateAction<boolean>>;
+  onEnd?: Function;
 };
 
 export const Timer: React.FC<TimerProps> = ({
@@ -22,47 +23,53 @@ export const Timer: React.FC<TimerProps> = ({
   stopTimer,
   setStartTime,
   setTimerDisable,
+  onEnd,
 }) => {
+  const defaultStartTime = useRef(0);
   const timerStartTime = useRef(0);
   const interval = useRef(0);
   const audio = useRef(new Audio());
+  const currentTime = useRef(0);
 
   const startCountDown = useCallback((): void => {
     audio.current = new Audio();
-    var currentTime = timerStartTime.current;
-    if (currentTime <= 0) {
+    currentTime.current = timerStartTime.current;
+    if (currentTime.current <= 0) {
       return;
     }
     setTimerDisable(true);
     const p = document.getElementById("time")! as HTMLParagraphElement;
     const intervalTime = 10;
     interval.current = window.setInterval(() => {
-      currentTime -= intervalTime;
-      if (currentTime <= 0) {
+      currentTime.current -= intervalTime;
+      if (currentTime.current <= 0) {
         p.innerText = String(getFormattedTime(0));
         window.clearInterval(interval.current);
         setTimerDisable(false);
+        onEnd && onEnd();
 
         audio.current.src = beepbeep;
         audio.current.play();
       } else {
-        p.innerText = String(getFormattedTime(currentTime));
+        p.innerText = String(getFormattedTime(currentTime.current));
       }
     }, intervalTime);
-  }, [setTimerDisable]);
+  }, [setTimerDisable, onEnd]);
 
   const resetCountDown = useCallback((): void => {
     setTimerDisable(false);
-
+    timerStartTime.current = defaultStartTime.current;
     window.clearInterval(interval.current);
   }, [setTimerDisable]);
 
   const stopCountDown = useCallback((): void => {
+    timerStartTime.current = currentTime.current;
     setTimerDisable(false);
     window.clearInterval(interval.current);
   }, [setTimerDisable]);
 
   const _setStartTime = useCallback((time: number = 0): void => {
+    defaultStartTime.current = time;
     timerStartTime.current = time;
     const p = document.getElementById("time")! as HTMLParagraphElement;
     p.innerText = String(getFormattedTime(time));
