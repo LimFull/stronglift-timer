@@ -2,6 +2,7 @@ import React, { useRef, Dispatch, SetStateAction, useCallback } from "react";
 import { getFormattedTime } from "../utils";
 import beepbeep from "../assets/sounds/beepbeep.mp3";
 import useEffectOnlyOnce from "../utils/useEffectOnlyOnce";
+import ilsan from "../assets/videos/일산으로.mp4";
 
 type TimerProps = {
   setStartTime: React.MutableRefObject<Function>;
@@ -75,10 +76,13 @@ export const Timer: React.FC<TimerProps> = ({
     resetCount.current = resetCountDown;
     stopTimer.current = stopCountDown;
     setStartTime.current = _setStartTime;
+    const video = document.getElementById("video")! as HTMLVideoElement;
+    video.play();
   });
 
   return (
     <div>
+      <video src={ilsan} id="video" />
       <p id="time" className=" text-white text-7xl sm:text-9xl my-10">
         00:00.00
       </p>
