@@ -1,12 +1,7 @@
-import React, {
-  useEffect,
-  useRef,
-  Dispatch,
-  SetStateAction,
-  useCallback,
-} from "react";
+import React, { useRef, Dispatch, SetStateAction, useCallback } from "react";
 import { getFormattedTime } from "../utils";
 import beepbeep from "../assets/sounds/beepbeep.mp3";
+import useEffectOnlyOnce from "../utils/useEffectOnlyOnce";
 
 type TimerProps = {
   setStartTime: React.MutableRefObject<Function>;
@@ -75,21 +70,12 @@ export const Timer: React.FC<TimerProps> = ({
     p.innerText = String(getFormattedTime(time));
   }, []);
 
-  useEffect(() => {
+  useEffectOnlyOnce(() => {
     startCount.current = startCountDown;
     resetCount.current = resetCountDown;
     stopTimer.current = stopCountDown;
     setStartTime.current = _setStartTime;
-  }, [
-    resetCount,
-    resetCountDown,
-    setStartTime,
-    startCount,
-    startCountDown,
-    stopCountDown,
-    stopTimer,
-    _setStartTime,
-  ]);
+  });
 
   return (
     <div>
