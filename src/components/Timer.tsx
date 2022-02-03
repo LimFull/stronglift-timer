@@ -78,11 +78,16 @@ export const Timer: React.FC<TimerProps> = ({
     setStartTime.current = _setStartTime;
     const video = document.getElementById("video")! as HTMLVideoElement;
     video.play();
+    // const container = document.getElementById(
+    //   "videoContainer"
+    // )! as HTMLDivElement;
+    // container.innerHTML=""
   });
 
   return (
     <div>
-      {/* <video src={ilsan} id="video" /> */}
+      {/* <div id="videoContainer"></div> */}
+      <video src={ilsan} id="video" playsInline />
       <p id="time" className=" text-white text-7xl sm:text-9xl my-10">
         00:00.00
       </p>
