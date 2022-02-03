@@ -87,7 +87,9 @@ export const Timer: React.FC<TimerProps> = ({
   return (
     <div>
       {/* <div id="videoContainer"></div> */}
-      <video src={ilsan} id="video" playsInline />
+      <video id="video" playsInline controls>
+        <source src={ilsan} type="video/mp4"></source>
+      </video>
       <p id="time" className=" text-white text-7xl sm:text-9xl my-10">
         00:00.00
       </p>
