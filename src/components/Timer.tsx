@@ -24,11 +24,11 @@ export const Timer: React.FC<TimerProps> = ({
   const defaultStartTime = useRef(0);
   const timerStartTime = useRef(0);
   const interval = useRef(0);
-  // const audio = useRef(new Audio());
+  const audio = useRef(new Audio());
   const currentTime = useRef(0);
 
   const startCountDown = useCallback((): void => {
-    // audio.current = new Audio(beepbeep);
+    audio.current = new Audio(beepbeep);
     currentTime.current = timerStartTime.current;
     if (currentTime.current <= 0) {
       return;
@@ -44,10 +44,9 @@ export const Timer: React.FC<TimerProps> = ({
         setTimerDisable(false);
         onEnd && onEnd(defaultStartTime.current);
 
-        // audio.current.src = beepbeep;
-        // audio.current.play();
-        const audio = document.getElementById("audio")! as HTMLAudioElement;
-        audio.play();
+        audio.current.src = beepbeep;
+        audio.current.play();
+
 
       } else {
         p.innerText = String(getFormattedTime(currentTime.current));
@@ -96,7 +95,6 @@ export const Timer: React.FC<TimerProps> = ({
       {/*  <source src={ilsan} type="video/mp4"></source>*/}
       {/*</video>*/}
 
-      <audio id="audio"><source src={beepbeep} type="audio/mp3"></source></audio>
       <p id="time" className=" text-white text-7xl sm:text-9xl my-10">
         00:00.00
       </p>
