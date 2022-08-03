@@ -1,5 +1,5 @@
-import React, {useCallback, useEffect, useRef, useState} from "react";
-import { Button } from "./Button";
+import React, {useRef, useState} from "react";
+import {Button} from "./Button";
 import TimeButton from "./TimeButton";
 import Timer from "./Timer";
 import "../App.css";

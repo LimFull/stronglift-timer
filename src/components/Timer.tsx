@@ -2,7 +2,7 @@ import React, { useRef, Dispatch, SetStateAction, useCallback } from "react";
 import { getFormattedTime } from "../utils";
 import beepbeep from "../assets/sounds/beepbeep.mp3";
 import useEffectOnlyOnce from "../utils/useEffectOnlyOnce";
-import ilsan from "../assets/videos/일산으로.mp4";
+// import ilsan from "../assets/videos/일산으로.mp4";
 
 type TimerProps = {
   setStartTime: React.MutableRefObject<Function>;
@@ -24,7 +24,7 @@ export const Timer: React.FC<TimerProps> = ({
   const defaultStartTime = useRef(0);
   const timerStartTime = useRef(0);
   const interval = useRef(0);
-  const audio = useRef(new Audio());
+  // const audio = useRef(new Audio());
   const currentTime = useRef(0);
 
   const startCountDown = useCallback((): void => {
@@ -80,7 +80,7 @@ export const Timer: React.FC<TimerProps> = ({
     stopTimer.current = stopCountDown;
     setStartTime.current = _setStartTime;
 
-    const video = document.getElementById("video")! as HTMLVideoElement;
+    // const video = document.getElementById("video")! as HTMLVideoElement;
     // video.play();
 
     // const container = document.getElementById(
