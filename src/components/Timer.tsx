@@ -28,7 +28,7 @@ export const Timer: React.FC<TimerProps> = ({
   const currentTime = useRef(0);
 
   const startCountDown = useCallback((): void => {
-    audio.current = new Audio();
+    // audio.current = new Audio(beepbeep);
     currentTime.current = timerStartTime.current;
     if (currentTime.current <= 0) {
       return;
@@ -44,8 +44,11 @@ export const Timer: React.FC<TimerProps> = ({
         setTimerDisable(false);
         onEnd && onEnd(defaultStartTime.current);
 
-        audio.current.src = beepbeep;
-        audio.current.play();
+        // audio.current.src = beepbeep;
+        // audio.current.play();
+        const audio = document.getElementById("audio")! as HTMLAudioElement;
+        audio.play();
+
       } else {
         p.innerText = String(getFormattedTime(currentTime.current));
       }
@@ -76,8 +79,10 @@ export const Timer: React.FC<TimerProps> = ({
     resetCount.current = resetCountDown;
     stopTimer.current = stopCountDown;
     setStartTime.current = _setStartTime;
+
     const video = document.getElementById("video")! as HTMLVideoElement;
-    video.play();
+    // video.play();
+
     // const container = document.getElementById(
     //   "videoContainer"
     // )! as HTMLDivElement;
@@ -87,9 +92,11 @@ export const Timer: React.FC<TimerProps> = ({
   return (
     <div>
       {/* <div id="videoContainer"></div> */}
-      <video id="video" playsInline controls>
-        <source src={ilsan} type="video/mp4"></source>
-      </video>
+      {/*<video id="video" playsInline controls>*/}
+      {/*  <source src={ilsan} type="video/mp4"></source>*/}
+      {/*</video>*/}
+
+      <audio id="audio"><source src={beepbeep} type="audio/mp3"></source></audio>
       <p id="time" className=" text-white text-7xl sm:text-9xl my-10">
         00:00.00
       </p>

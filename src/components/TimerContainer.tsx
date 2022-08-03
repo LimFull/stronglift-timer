@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, {useCallback, useEffect, useRef, useState} from "react";
 import { Button } from "./Button";
 import TimeButton from "./TimeButton";
 import Timer from "./Timer";
@@ -22,16 +22,19 @@ export const TimerContainer: React.FC<TimerContainerProps> = ({
   const [isStop, setIsStop] = useState(false);
   const [deafultTime, setDefaultTime] = useState(0);
   const [isRun, setIsRun] = useState(false);
-  const [timeList, setTimeList] = useState(new Array<String>());
+  const [timeList, setTimeList] = useState(new Array<string>());
+
+  useEffect(()=>{
+      console.log("[timeList]", timeList)
+  }, [timeList])
 
   const addTimeList = (newTime: string): void => {
-    const _timeList = new Array<String>().concat(timeList);
-    _timeList.push(newTime);
-    setTimeList(_timeList);
+    setTimeList(prev => {
+        return [...prev, newTime]});
   };
 
   const resetTimeList = (): void => {
-    setTimeList(new Array<String>());
+    setTimeList(new Array<string>());
   };
 
   return (
@@ -44,16 +47,18 @@ export const TimerContainer: React.FC<TimerContainerProps> = ({
         stopTimer={stopTimer}
         setTimerDisable={setTimerDisable}
         onEnd={(startTime: string) => {
+            console.log("onEnd")
           setIsStop(true);
           setIsRun(false);
 
-          addTimeList(startTime);
+          addTimeList( startTime);
         }}
       />
       <div className="flex flex-row	w-full justify-center ">
         <TimeButton
           disable={timerDisable}
-          time={times[0]}
+          // time={times[0]}
+            time={1000}
           onClick={(num: number) => {
             setStartTime.current(num);
             setDefaultTime(num);
