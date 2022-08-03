@@ -24,10 +24,6 @@ export const TimerContainer: React.FC<TimerContainerProps> = ({
   const [isRun, setIsRun] = useState(false);
   const [timeList, setTimeList] = useState(new Array<string>());
 
-  useEffect(()=>{
-      console.log("[timeList]", timeList)
-  }, [timeList])
-
   const addTimeList = (newTime: string): void => {
     setTimeList(prev => {
         return [...prev, newTime]});
@@ -57,8 +53,7 @@ export const TimerContainer: React.FC<TimerContainerProps> = ({
       <div className="flex flex-row	w-full justify-center ">
         <TimeButton
           disable={timerDisable}
-          // time={times[0]}
-            time={1000}
+          time={times[0]}
           onClick={(num: number) => {
             setStartTime.current(num);
             setDefaultTime(num);
