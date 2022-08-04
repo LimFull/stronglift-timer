@@ -12,7 +12,7 @@ export const SetList: React.FC<SetListProps> = ({
 
     useEffect(() => {
         listRef?.current?.scroll(0, listRef?.current?.scrollHeight);
-    }, [JSON.stringify(times)])
+    }, [times])
 
     return (
         <div ref={listRef} className="flex flex-col w-full flex-1 overflow-y-scroll">
