@@ -1,11 +1,12 @@
 export type TimeProps = {
-  time: number;
+    time: number;
 };
 
 export type ButtonProps = {
-  onClick: Function;
-  className?: string;
-  name?: string;
-  disable?: Boolean;
-  fontSize?: string;
+    onClick: Function;
+    className?: string;
+    name?: string;
+    disable?: Boolean;
+    fontSize?: string;
+    style?: any;
 };
