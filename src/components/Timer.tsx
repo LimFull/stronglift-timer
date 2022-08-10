@@ -28,6 +28,7 @@ export const Timer: React.FC<TimerProps> = ({
   const currentTime = useRef(0);
 
   const startCountDown = useCallback((): void => {
+    const firstTime = new Date().getTime();
     audio.current = new Audio(beepbeep);
     currentTime.current = timerStartTime.current;
     if (currentTime.current <= 0) {
@@ -37,7 +38,9 @@ export const Timer: React.FC<TimerProps> = ({
     const p = document.getElementById("time")! as HTMLParagraphElement;
     const intervalTime = 10;
     interval.current = window.setInterval(() => {
-      currentTime.current -= intervalTime;
+      const current = new Date().getTime();
+      // currentTime.current -= intervalTime;
+      currentTime.current = timerStartTime.current - (current - firstTime);
       if (currentTime.current <= 0) {
         p.innerText = String(getFormattedTime(0));
         window.clearInterval(interval.current);
