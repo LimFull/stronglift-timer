@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/stronglift-timer/static/css/main.4d3758e7.css",
-    "main.js": "/stronglift-timer/static/js/main.3ea18f20.js",
+    "main.css": "/stronglift-timer/static/css/main.1e469d4d.css",
+    "main.js": "/stronglift-timer/static/js/main.f5ead0e3.js",
     "static/js/787.5744ec8a.chunk.js": "/stronglift-timer/static/js/787.5744ec8a.chunk.js",
     "static/media/beepbeep.mp3": "/stronglift-timer/static/media/beepbeep.a3192e1fd037b61aa42c.mp3",
     "index.html": "/stronglift-timer/index.html",
-    "main.4d3758e7.css.map": "/stronglift-timer/static/css/main.4d3758e7.css.map",
-    "main.3ea18f20.js.map": "/stronglift-timer/static/js/main.3ea18f20.js.map",
+    "main.1e469d4d.css.map": "/stronglift-timer/static/css/main.1e469d4d.css.map",
+    "main.f5ead0e3.js.map": "/stronglift-timer/static/js/main.f5ead0e3.js.map",
     "787.5744ec8a.chunk.js.map": "/stronglift-timer/static/js/787.5744ec8a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4d3758e7.css",
-    "static/js/main.3ea18f20.js"
+    "static/css/main.1e469d4d.css",
+    "static/js/main.f5ead0e3.js"
   ]
 }
