@@ -1,3 +1,11 @@
+## 🌐 Deployment
+
+This project is deployed via GitHub Pages.
+
+**Deployment URL**: https://limfull.github.io/stronglift-timer/
+
+---
+
 # StrongLift Timer
 
 A timer application for weight training that accurately measures and records rest periods between sets.
@@ -120,12 +128,6 @@ src/
 ## 📄 License
 
 This project is licensed under the MIT License.
-
-## 🌐 Deployment
-
-This project is deployed via GitHub Pages.
-
-**Deployment URL**: https://limfull.github.io/stronglift-timer/
 
 ---
 
