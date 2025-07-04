@@ -1,70 +1,132 @@
-# Getting Started with Create React App
+# StrongLift Timer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A timer application for weight training that accurately measures and records rest periods between sets.
 
-## Available Scripts
+## 🚀 Key Features
 
-In the project directory, you can run:
+- **Multiple Timer Settings**: 1min 30sec, 3min, 5min (First Timer) / 40sec, 1min, 1min 30sec (Second Timer)
+- **Real-time Countdown**: Precise time measurement down to milliseconds
+- **Set Recording**: Automatically records completed set times
+- **Audio Alerts**: Beep sound notification when timer ends
+- **Responsive Design**: Works on both mobile and desktop
+- **Dark Theme**: Eye-friendly dark mode UI
 
-### `npm start`
+## 🛠️ Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**: React 17, TypeScript
+- **Styling**: Tailwind CSS, Styled Components
+- **Routing**: React Router DOM
+- **Icons**: Font Awesome
+- **Build Tool**: Create React App
+- **Deployment**: GitHub Pages
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📱 How to Use
 
-### `npm test`
+1. **Select Timer**: Choose your preferred timer mode from the bottom navigation
+2. **Set Time**: Click on the desired rest time button
+3. **Start**: Press the "Start" button to begin countdown
+4. **Stop/Reset**: Pause or reset the timer as needed
+5. **Set Recording**: Timer completion automatically records to the set list
+6. **Clear**: Use the "Clear" button to delete all set records
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🎯 Timer Modes
 
-### `npm run build`
+### First Timer (😠)
+- 1 minute 30 seconds (90 seconds)
+- 3 minutes (180 seconds)
+- 5 minutes (300 seconds)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Second Timer (😊)
+- 40 seconds
+- 1 minute (60 seconds)
+- 1 minute 30 seconds (90 seconds)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Installation and Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
+- Node.js 14.0.0 or higher
+- npm or yarn
 
-### `npm run eject`
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/limfull/stronglift-timer.git
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Navigate to project directory
+cd stronglift-timer
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Install dependencies
+npm install
+# or
+yarn install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Run Development Server
+```bash
+npm start
+# or
+yarn start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Build
+```bash
+npm run build
+# or
+yarn build
+```
 
-## Learn More
+### Deploy
+```bash
+npm run deploy
+# or
+yarn deploy
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📁 Project Structure
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+src/
+├── components/
+│   ├── BottomNav.tsx      # Bottom navigation
+│   ├── Button.tsx         # Reusable button component
+│   ├── SetList.tsx        # Set record list
+│   ├── TimeButton.tsx     # Time setting button
+│   ├── Timer.tsx          # Timer logic
+│   └── TimerContainer.tsx # Timer container
+├── assets/
+│   └── sounds/
+│       └── beepbeep.mp3   # Timer end notification sound
+├── utils/
+│   ├── index.tsx          # Utility functions
+│   └── useEffectOnlyOnce.tsx
+└── App.tsx                # Main app component
+```
 
-### Code Splitting
+## 🎨 UI/UX Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Intuitive Interface**: Large buttons and clear layout
+- **Color Coding**: Different color themes for each timer mode
+- **Mobile Optimized**: Touch-friendly design
+- **Accessibility**: High contrast colors and large font sizes
 
-### Analyzing the Bundle Size
+## 🔧 Development Information
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **React 17**: Functional components and Hooks
+- **TypeScript**: Type safety guaranteed
+- **Tailwind CSS**: Utility-first CSS framework
+- **Styled Components**: Dynamic styling
+- **React Router**: SPA routing
 
-### Making a Progressive Web App
+## 📄 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This project is licensed under the MIT License.
 
-### Advanced Configuration
+## 🌐 Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This project is deployed via GitHub Pages.
 
-### Deployment
+**Deployment URL**: https://limfull.github.io/stronglift-timer/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Make your weight training more systematic and efficient! 💪
